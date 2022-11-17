@@ -77,6 +77,12 @@ public class CustomUserAgentInterceptorTest {
         assertUserAgent(clientModified, MODIFIED_AGENT);
     }
 
+    @Test
+    public void testWhitespace() throws ClientException {
+        UserAgentHolder.set(" ");
+        assertUserAgent(client, Constants.SLING_CLIENT_USERAGENT_TITLE);
+    }
+
     /**
      * Sends a dummy request to the test-server to see if the response contains a specified user-agent header
      * to assert whether the requests contained the user-agent as well.

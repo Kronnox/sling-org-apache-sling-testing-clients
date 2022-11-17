@@ -39,8 +39,9 @@ public class UserAgentHolder {
      * @param agent the desired new user-agent (or null for default)
      */
     public static void set(String agent) {
-        if (StringUtils.isEmpty(agent)) {
+        if (StringUtils.isBlank(agent)) {
             reset(); // don't store whitespace
+            return;
         }
         userAgent.set(agent);
     }
